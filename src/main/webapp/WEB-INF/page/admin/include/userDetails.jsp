@@ -14,11 +14,11 @@
             });
         });
 
-        //获取产品子界面
+        //获取商品子界面
         function getChildPage(obj) {
             //设置样式
-            $("#div_home_title").children("span").text("产品详情");
-            document.title = "Tmall管理后台 - 产品详情";
+            $("#div_home_title").children("span").text("商品详情");
+            document.title = "LeTao管理后台 - 商品详情";
             //ajax请求页面
             ajaxUtil.getPage("product/" + $(obj).parents("tr").find(".product_id").text(), null, true);
         }
@@ -91,20 +91,20 @@
     <table class="table_normal" id="table_orderItem_list">
         <thead class="text_info">
         <tr>
-            <th>产品图片</th>
-            <th>产品名称</th>
+            <th>商品图片</th>
+            <th>商品名称</th>
             <th>单价</th>
             <th>数量</th>
             <th>价格</th>
             <th>备注</th>
             <th>操作</th>
-            <th hidden class="product_id">产品ID</th>
+            <th hidden class="product_id">商品ID</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${requestScope.user.productOrderItemList}" var="item" varStatus="i">
             <tr>
-                <td title="产品图片"><img
+                <td title="商品图片"><img
                         src="${pageContext.request.contextPath}/res/images/item/productSinglePicture/${item.productOrderItem_product.singleProductImageList[0].productImage_src}"
                         id="pic_single_${item.productOrderItem_product.singleProductImageList[0].productImage_id}"
                         width="42px" height="42px"
@@ -114,7 +114,7 @@
                 <td title="${item.productOrderItem_number}">${item.productOrderItem_number}</td>
                 <td title="${item.productOrderItem_price}">${item.productOrderItem_price}</td>
                 <td title="${item.productOrderItem_userMessage}">${item.productOrderItem_userMessage}</td>
-                <td><span class="td_special" title="查看产品详情"><a href="javascript:void(0)"
+                <td><span class="td_special" title="查看商品详情"><a href="javascript:void(0)"
                                                                onclick="getChildPage(this)">详情</a></span></td>
                 <td hidden><span class="product_id">${item.productOrderItem_product.product_id}</span></td>
             </tr>

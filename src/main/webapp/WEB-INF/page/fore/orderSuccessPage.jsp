@@ -2,7 +2,7 @@
 <%@ include file="include/header.jsp" %>
 <head>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_orderSuccessPage.css" rel="stylesheet"/>
-    <title>交易成功 - Tmall.com乐淘-理想生活上乐淘</title>
+    <title>交易成功 - letao.com乐淘-理想生活上乐淘</title>
 </head>
 <body>
 <nav>

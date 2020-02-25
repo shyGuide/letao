@@ -2,7 +2,7 @@
 <%@ include file="include/header.jsp" %>
 <head>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_orderPay.css" rel="stylesheet"/>
-    <title>乐淘tmall.com - 网上支付</title>
+    <title>乐淘letao.com - 网上支付</title>
 </head>
 <body>
 <nav>
@@ -19,7 +19,7 @@
         <c:choose>
             <c:when test="${fn:length(requestScope.productOrder.productOrderItemList)==1}">
                 <div class="order_name">
-                    <span>乐淘Tmall -- ${requestScope.productOrder.productOrderItemList[0].productOrderItem_product.product_name}</span>
+                    <span>乐淘letao -- ${requestScope.productOrder.productOrderItemList[0].productOrderItem_product.product_name}</span>
                 </div>
                 <div class="order_shop_name">
                     <span>卖家昵称：乐淘${requestScope.productOrder.productOrderItemList[0].productOrderItem_product.product_category.category_name}旗舰店</span>
@@ -27,7 +27,7 @@
             </c:when>
             <c:otherwise>
                 <div class="order_name">
-                    <span>乐淘Tmall -- 合并订单：${fn:length(requestScope.productOrder.productOrderItemList)}笔</span>
+                    <span>乐淘letao -- 合并订单：${fn:length(requestScope.productOrder.productOrderItemList)}笔</span>
                 </div>
             </c:otherwise>
         </c:choose>
@@ -59,14 +59,14 @@
                         if (data.success !== true) {
                             alert("订单处理异常，请稍候再试！");
                         }
-                        location.href = "/tmall" + data.url;
+                        location.href = "/letao" + data.url;
                     },
                     beforeSend: function () {
 
                     },
                     error: function () {
                         alert("订单支付出现问题，请重新支付！");
-                        location.href = "/tmall/order/0/10";
+                        location.href = "/letao/order/0/10";
                     }
                 });
             }

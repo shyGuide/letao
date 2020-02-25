@@ -19,7 +19,7 @@ import java.util.UUID;
 
 /**
  * 后台管理-账户页
- * @author 贤趣项目小组
+ * @author shy
  */
 @Controller
 public class AccountController extends BaseController{

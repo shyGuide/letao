@@ -114,7 +114,7 @@ var ajaxUtil = {
         function (url,data,isChild) {
             if(url !== null && url !== ""){
                 $.ajax({
-                    url: "/tmall/admin/"+url,
+                    url: "/letao/admin/"+url,
                     type: "get",
                     data: data,
                     contentType: "text/html;charset=UTF-8",

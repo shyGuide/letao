@@ -2,7 +2,7 @@ package com.letao.tmall.entity;
 
 /**
  * 地址实体类
- * @author 贤趣项目小组
+ * @author shy
  */
 public class Address {
     private String address_areaId/*地址ID*/;

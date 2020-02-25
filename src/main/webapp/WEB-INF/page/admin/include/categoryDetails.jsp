@@ -133,7 +133,7 @@
             formData.append("file", file);
             //上传图片
             $.ajax({
-                url: "/tmall/admin/uploadCategoryImage",
+                url: "/letao/admin/uploadCategoryImage",
                 type: "post",
                 data: formData,
                 contentType: false,

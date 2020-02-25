@@ -45,13 +45,13 @@ $(function () {
         if (yn) {
             $.ajax({
                 type: "POST",
-                url: "/tmall/login/doLogin",
+                url: "/letao/login/doLogin",
                 data: {"username": $.trim($("#name").val()), "password": $.trim($("#password").val())},
                 dataType: "json",
                 success: function (data) {
                     $(".loginButton").val("登 录");
                     if (data.success) {
-                        location.href = "/tmall";
+                        location.href = "/letao";
                     } else {
                         styleUtil.errorShow($("#error_message_p"), "用户名和密码错误！");
                     }

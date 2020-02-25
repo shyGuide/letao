@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * 类型实体类
- * @author 贤趣项目小组
+ * @author shy
  */
 
 public class Category {
@@ -16,9 +16,9 @@ public class Category {
 
     private List<Property> propertyList/*属性列表*/;
 
-    private List<Product> productList/*产品集合*/;
+    private List<Product> productList/*商品集合*/;
 
-    private List<List<Product>> complexProductList/*产品二维集合*/;
+    private List<List<Product>> complexProductList/*商品二维集合*/;
 
     @Override
     public String toString() {

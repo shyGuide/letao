@@ -15,14 +15,14 @@
                         if (data.success !== true) {
                             alert("订单处理异常，请稍候再试！");
                         }
-                        location.href = "/tmall/order/0/10";
+                        location.href = "/letao/order/0/10";
                     },
                     beforeSend: function () {
 
                     },
                     error: function () {
                         alert("订单取消出现问题，请稍后再试！");
-                        location.href = "/tmall/order/0/10";
+                        location.href = "/letao/order/0/10";
                     }
                 });
             });

@@ -2,7 +2,7 @@ package com.letao.tmall.util;
 
 /**
  * 查询分页工具
- * @author 贤趣项目小组
+ * @author shy
  */
 public final class PageUtil {
     //当前页

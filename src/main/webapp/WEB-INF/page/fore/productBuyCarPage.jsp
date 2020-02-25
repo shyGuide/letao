@@ -3,7 +3,7 @@
 <head>
     <script src="${pageContext.request.contextPath}/res/js/fore/fore_productBuyCar.js"></script>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_productBuyCarPage.css" rel="stylesheet"/>
-    <title>Tmall.com乐淘 - 购物车</title>
+    <title>LeTao.com乐淘 - 购物车</title>
     <script>
         $(function () {
             $('#btn-ok').click(function () {
@@ -16,14 +16,14 @@
                         if (data.success !== true) {
                             alert("购物车商品删除异常，请稍候再试！");
                         }
-                        location.href = "/tmall/cart";
+                        location.href = "/letao/cart";
                     },
                     beforeSend: function () {
 
                     },
                     error: function () {
                         alert("购物车产品删除异常，请稍后再试！");
-                        location.href = "/tmall/cart";
+                        location.href = "/letao/cart";
                     }
                 });
             });
@@ -116,7 +116,7 @@
                 <c:forEach items="${requestScope.orderItemList}" var="orderItem">
                     <tr class="orderItem_category">
                         <td colspan="6"><span class="shop_logo"></span><span
-                                class="category_shop">店铺：贤趣${orderItem.productOrderItem_product.product_category.category_name}旗舰店</span>
+                                class="category_shop">店铺：小帅${orderItem.productOrderItem_product.product_category.category_name}旗舰店</span>
                         </td>
                     </tr>
                     <tr class="orderItem_info">

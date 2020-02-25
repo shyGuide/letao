@@ -23,7 +23,7 @@ import java.util.*;
 
 /**
  * 订单列表页
- * @author 贤趣项目小组
+ * @author shy
  */
 @Controller
 public class ForeOrderController extends BaseController {
@@ -51,6 +51,8 @@ public class ForeOrderController extends BaseController {
     public String goToPageSimple() {
         return "redirect:/order/0/10";
     }
+
+    //订单列表页
     @RequestMapping(value = "order/{index}/{count}", method = RequestMethod.GET)
     public String goToPage(HttpSession session, Map<String, Object> map,
                            @RequestParam(required = false) Byte status,
@@ -83,7 +85,7 @@ public class ForeOrderController extends BaseController {
         Integer orderCount = 0;
         if (productOrderList.size() > 0) {
             orderCount = productOrderService.getTotal(new ProductOrder().setProductOrder_user(new User().setUser_id(Integer.valueOf(userId.toString()))), status_array);
-            logger.info("获取订单项信息及对应的产品信息");
+            logger.info("获取订单项信息及对应的商品信息");
             for (ProductOrder order : productOrderList) {
                 List<ProductOrderItem> productOrderItemList = productOrderItemService.getListByOrderId(
                         order.getProductOrder_id(), null
@@ -108,7 +110,7 @@ public class ForeOrderController extends BaseController {
         }
         pageUtil.setTotal(orderCount);
 
-        logger.info("获取产品分类列表信息");
+        logger.info("获取商品分类列表信息");
         List<Category> categoryList = categoryService.getList(null, new PageUtil(0, 5));
 
         map.put("pageUtil", pageUtil);
@@ -137,12 +139,12 @@ public class ForeOrderController extends BaseController {
         } else {
             return "redirect:/login";
         }
-        logger.info("通过产品ID获取产品信息：{}", product_id);
+        logger.info("通过商品ID获取商品信息：{}", product_id);
         Product product = productService.get(product_id);
         if (product == null) {
             return "redirect:/";
         }
-        logger.info("获取产品的详细信息");
+        logger.info("获取商品的详细信息");
         product.setProduct_category(categoryService.get(product.getProduct_category().getCategory_id()));
         product.setSingleProductImageList(productImageService.getList(product_id, (byte) 0, new PageUtil(0, 1)));
 
@@ -259,7 +261,7 @@ public class ForeOrderController extends BaseController {
                 return "redirect:/cart";
             }
         }
-        logger.info("验证通过，获取订单项的产品信息");
+        logger.info("验证通过，获取订单项的商品信息");
         double orderTotalPrice = 0.0;
         for (ProductOrderItem orderItem : orderItemList) {
             Product product = productService.get(orderItem.getProductOrderItem_product().getProduct_id());
@@ -365,7 +367,7 @@ public class ForeOrderController extends BaseController {
 
         double orderTotalPrice = 0.00;
         if (order.getProductOrderItemList().size() == 1) {
-            logger.info("获取单订单项的产品信息");
+            logger.info("获取单订单项的商品信息");
             ProductOrderItem productOrderItem = order.getProductOrderItemList().get(0);
             Product product = productService.get(productOrderItem.getProductOrderItem_product().getProduct_id());
             product.setProduct_category(categoryService.get(product.getProduct_category().getCategory_id()));
@@ -420,7 +422,7 @@ public class ForeOrderController extends BaseController {
 
         double orderTotalPrice = 0.00;
         if (order.getProductOrderItemList().size() == 1) {
-            logger.info("获取单订单项的产品信息");
+            logger.info("获取单订单项的商品信息");
             ProductOrderItem productOrderItem = order.getProductOrderItemList().get(0);
             orderTotalPrice = productOrderItem.getProductOrderItem_price();
         } else {
@@ -491,7 +493,7 @@ public class ForeOrderController extends BaseController {
 
         double orderTotalPrice = 0.00;
         if (order.getProductOrderItemList().size() == 1) {
-            logger.info("获取单订单项的产品信息");
+            logger.info("获取单订单项的商品信息");
             ProductOrderItem productOrderItem = order.getProductOrderItemList().get(0);
             Integer product_id = productOrderItem.getProductOrderItem_product().getProduct_id();
             Product product = productService.get(product_id);
@@ -499,7 +501,7 @@ public class ForeOrderController extends BaseController {
             productOrderItem.setProductOrderItem_product(product);
             orderTotalPrice = productOrderItem.getProductOrderItem_price();
         } else {
-            logger.info("获取多订单项的产品信息");
+            logger.info("获取多订单项的商品信息");
             for (ProductOrderItem productOrderItem : order.getProductOrderItemList()) {
                 Integer product_id = productOrderItem.getProductOrderItem_product().getProduct_id();
                 Product product = productService.get(product_id);
@@ -558,7 +560,7 @@ public class ForeOrderController extends BaseController {
                 logger.info("获取订单项评论数量");
                 count = reviewService.getTotalByOrderItemId(productOrderItem.getProductOrderItem_id());
                 if (count == 0) {
-                    logger.info("获取订单项产品信息");
+                    logger.info("获取订单项商品信息");
                     product = productService.get(productOrderItem.getProductOrderItem_product().getProduct_id());
                     if (product != null) {
                         product.setSingleProductImageList(productImageService.getList(product.getProduct_id(), (byte) 0, new PageUtil(0, 1)));
@@ -648,39 +650,39 @@ public class ForeOrderController extends BaseController {
 
         double orderTotalPrice = 0.00;
         if (order.getProductOrderItemList().size() == 1) {
-            logger.info("获取单订单项的产品信息");
+            logger.info("获取单订单项的商品信息");
             ProductOrderItem productOrderItem = order.getProductOrderItemList().get(0);
             Product product = productService.get(productOrderItem.getProductOrderItem_product().getProduct_id());
             product.setProduct_category(categoryService.get(product.getProduct_category().getCategory_id()));
             productOrderItem.setProductOrderItem_product(product);
             orderTotalPrice = productOrderItem.getProductOrderItem_price();
-            logger.info("更新产品销量信息");
+            logger.info("更新商品销量信息");
             Product updateProduct = new Product()
                     .setProduct_id(product.getProduct_id())
                     .setProduct_sale_count(product.getProduct_sale_count() + productOrderItem.getProductOrderItem_number());
-            logger.info("更新产品信息，产品ID值为：{}", product.getProduct_id());
+            logger.info("更新商品信息，商品ID值为：{}", product.getProduct_id());
             boolean yn = productService.update(updateProduct);
             if (!yn) {
-                logger.info("产品销量信息更新失败！事务回滚");
+                logger.info("商品销量信息更新失败！事务回滚");
                 object.put("success", false);
                 throw new RuntimeException();
             }
-            logger.info("产品销量信息更新成功！");
+            logger.info("商品销量信息更新成功！");
         } else {
             for (ProductOrderItem productOrderItem : order.getProductOrderItemList()) {
                 Product product = productService.get(productOrderItem.getProductOrderItem_product().getProduct_id());
-                logger.info("更新产品销量信息");
+                logger.info("更新商品销量信息");
                 Product updateProduct = new Product()
                         .setProduct_id(product.getProduct_id())
                         .setProduct_sale_count(product.getProduct_sale_count() + productOrderItem.getProductOrderItem_number());
-                logger.info("更新产品信息，产品ID值为：{}", product.getProduct_id());
+                logger.info("更新商品信息，商品ID值为：{}", product.getProduct_id());
                 boolean yn = productService.update(updateProduct);
                 if (!yn) {
-                    logger.info("产品销量信息更新失败！事务回滚");
+                    logger.info("商品销量信息更新失败！事务回滚");
                     object.put("success", false);
                     throw new RuntimeException();
                 }
-                logger.info("产品销量信息更新成功！");
+                logger.info("商品销量信息更新成功！");
                 orderTotalPrice += productOrderItem.getProductOrderItem_price();
             }
         }
@@ -853,7 +855,7 @@ public class ForeOrderController extends BaseController {
         JSONObject orderItemString = JSON.parseObject(orderItemMap);
         Set<String> orderItemIDSet = orderItemString.keySet();
         if (orderItemIDSet.size() > 0) {
-            logger.info("更新产品订单项数量");
+            logger.info("更新商品订单项数量");
             for (String key : orderItemIDSet) {
                 ProductOrderItem productOrderItem = productOrderItemService.get(Integer.valueOf(key));
                 if (productOrderItem == null || !productOrderItem.getProductOrderItem_user().getUser_id().equals(userId)) {
@@ -867,7 +869,7 @@ public class ForeOrderController extends BaseController {
                 }
                 Short number = Short.valueOf(orderItemString.getString(key));
                 if (number <= 0 || number > 500) {
-                    logger.warn("订单项产品数量不合法！");
+                    logger.warn("订单项商品数量不合法！");
                     object.put("success", false);
                     return object.toJSONString();
                 }
@@ -1090,7 +1092,7 @@ public class ForeOrderController extends BaseController {
             return object.toJSONString();
         }
 
-        logger.info("通过产品ID获取产品信息：{}", product_id);
+        logger.info("通过商品ID获取商品信息：{}", product_id);
         Product product = productService.get(product_id);
         if (product == null) {
             object.put("url", "/login");
@@ -1103,7 +1105,7 @@ public class ForeOrderController extends BaseController {
         List<ProductOrderItem> orderItemList = productOrderItemService.getListByUserId(Integer.valueOf(userId.toString()), null);
         for (ProductOrderItem orderItem : orderItemList) {
             if (orderItem.getProductOrderItem_product().getProduct_id().equals(product_id)) {
-                logger.info("找到已有的产品，进行数量追加");
+                logger.info("找到已有的商品，进行数量追加");
                 int number = orderItem.getProductOrderItem_number();
                 number += 1;
                 productOrderItem.setProductOrderItem_id(orderItem.getProductOrderItem_id());

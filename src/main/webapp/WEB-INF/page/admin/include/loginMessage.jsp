@@ -7,7 +7,7 @@
             var time = 3;
             setInterval(function () {
                 if (time === 0) {
-                    location.href = "/tmall/admin/login";
+                    location.href = "/letao/admin/login";
                 } else {
                     time--;
                     $("#message_time").text(time);

@@ -107,7 +107,7 @@ $(function () {
         if (yn) {
             $.ajax({
                 type: "POST",
-                url: "/tmall/login/doLogin",
+                url: "/letao/login/doLogin",
                 data: {"username": $.trim($("#name").val()), "password": $.trim($("#password").val())},
                 dataType: "json",
                 success: function (data) {
@@ -169,7 +169,7 @@ function SelectorMousemove(e) {
 function getGuessLoveProducts() {
     $.ajax({
         type: "GET",
-        url: "/tmall/guess/" + $("#tid").val(),
+        url: "/letao/guess/" + $("#tid").val(),
         data: {"guessNumber": $("#guessNumber").val()},
         dataType: "json",
         success: function (data) {
@@ -180,7 +180,7 @@ function getGuessLoveProducts() {
                     var product_id = data.loveProductList[i].product_id;
                     var product_sale_price = data.loveProductList[i].product_sale_price;
                     $(".context_ul_goodsList").children("ul").append("<li class='context_ul_main'><div class='context_ul_img'>" +
-                        "<a href='/tmall/product/" + product_id + "'><img src='/tmall/res/images/item/productSinglePicture/" + src + "'/></a><p>¥" + product_sale_price + ".00</p></div></li>"
+                        "<a href='/letao/product/" + product_id + "'><img src='/letao/res/images/item/productSinglePicture/" + src + "'/></a><p>¥" + product_sale_price + ".00</p></div></li>"
                     );
                 }
             }

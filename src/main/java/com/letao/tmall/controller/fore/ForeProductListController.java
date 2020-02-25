@@ -24,7 +24,7 @@ import java.util.Map;
 
 /**
  * 产品列表页
- * @author 贤趣项目小组
+ * @author shy
  */
 @Controller
 public class ForeProductListController extends BaseController {

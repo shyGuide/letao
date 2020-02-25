@@ -5,7 +5,7 @@
 <body>
 <title><c:choose><c:when test="${requestScope.searchValue != null}">${requestScope.searchValue}</c:when>
     <c:otherwise><c:choose><c:when
-            test="${requestScope.productList != null && fn:length(requestScope.productList)>0}">${requestScope.productList[0].product_category.category_name}</c:when><c:otherwise>没找到相关商品</c:otherwise></c:choose></c:otherwise></c:choose>-乐淘Tmall.com-理想生活上乐淘</title>
+            test="${requestScope.productList != null && fn:length(requestScope.productList)>0}">${requestScope.productList[0].product_category.category_name}</c:when><c:otherwise>没找到相关商品</c:otherwise></c:choose></c:otherwise></c:choose>-乐淘LeTao.com-理想生活上乐淘</title>
 <nav>
     <%@ include file="include/navigator.jsp" %>
     <div class="header">
@@ -78,9 +78,9 @@
                                 </c:forEach>
                             </ul>
                             <p class="context_product_price"><span>¥</span>${product.product_sale_price}</p>
-                            <p class="context_product_name"><a href="/tmall/product/${product.product_id}"
+                            <p class="context_product_name"><a href="/letao/product/${product.product_id}"
                                                                target="_blank">${product.product_name}</a></p>
-                            <p class="context_product_shop"><span>贤趣${product.product_category.category_name}旗舰店</span>
+                            <p class="context_product_shop"><span>小帅${product.product_category.category_name}旗舰店</span>
                             </p>
                             <p class="context_product_status">
                                 <span class="status_left">总成交<em><c:choose><c:when

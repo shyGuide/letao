@@ -4,7 +4,7 @@
 <head>
     <script src="${pageContext.request.contextPath}/res/js/fore/fore_userDatiles.js"></script>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_userDatiles.css" rel="stylesheet">
-    <title>乐淘tmall.com - 个人中心</title>
+    <title>乐淘letao.com - 个人中心</title>
     <style rel="stylesheet">
         #baseNavigator {
             padding: 22px 0;

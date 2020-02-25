@@ -8,7 +8,7 @@ $(function () {
         $.ajax({
             type: "GET",
             //this的意思是获取这个标签中选择的内容
-            url: "/tmall/address/" + $(this).val(),
+            url: "/letao/address/" + $(this).val(),
             data: null,
             dataType: "json",
             success: function (data) {
@@ -46,7 +46,7 @@ $(function () {
     $("#select_order_address_city").change(function () {
         $.ajax({
             type: "GET",
-            url: "/tmall/address/" + $(this).val(),
+            url: "/letao/address/" + $(this).val(),
             data: null,
             dataType: "json",
             success: function (data) {

@@ -1,14 +1,14 @@
 package com.letao.tmall.entity;
 
 /**
- * 产品图片实体类
- * @author 贤趣项目小组
+ * 商品图片实体类
+ * @author shy
  */
 public class ProductImage {
-    private Integer productImage_id/*产品图片ID*/;
-    private Byte productImage_type/*产品图片类型*/;
-    private String productImage_src/*产品图片路径*/;
-    private Product productImage_product/*产品图片对应产品*/;
+    private Integer productImage_id/*商品图片ID*/;
+    private Byte productImage_type/*商品图片类型*/;
+    private String productImage_src/*商品图片路径*/;
+    private Product productImage_product/*商品图片对应商品*/;
 
     public ProductImage(){
 

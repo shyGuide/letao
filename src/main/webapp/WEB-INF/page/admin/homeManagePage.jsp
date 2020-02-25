@@ -5,7 +5,7 @@
     <script>
         var myChart;
         $(function () {
-            $.getJSON('/tmall/res/js/basicTheme.json', function (themeJSON) {
+            $.getJSON('/letao/res/js/basicTheme.json', function (themeJSON) {
                 echarts.registerTheme('basicTheme', themeJSON);
                 // 基于准备好的dom，初始化eCharts实例
                 myChart = echarts.init($("#chartDiv")[0], "basicTheme");
@@ -259,7 +259,7 @@
         function getChartData(beginDate, endDate, jsonObject) {
             if (jsonObject == null) {
                 $.ajax({
-                    url: "/tmall/admin/home/charts",
+                    url: "/letao/admin/home/charts",
                     type: "get",
                     data: {"beginDate": beginDate, "endDate": endDate},
                     dataType: "json",
@@ -466,7 +466,7 @@
 </ul>
 <ul id="chartTotal">
     <li id="productTotal">
-        <p class="chartTotalTitle"><span class="chartTitleText">上架产品数量</span><span class="chartTitleUnit">(单位：件)</span>
+        <p class="chartTotalTitle"><span class="chartTitleText">上架商品数量</span><span class="chartTitleUnit">(单位：件)</span>
         </p>
         <span class="chartTotalValue">${requestScope.productTotal}</span>
         <div class="chartTotalStyle" style="background-color: #f89e9e"></div>

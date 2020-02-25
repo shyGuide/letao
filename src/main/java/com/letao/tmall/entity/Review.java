@@ -6,7 +6,7 @@ import java.util.Locale;
 
 /**
  * 评论实体类
- * @author 贤趣项目小组
+ * @author shy
  */
 public class Review {
     private Integer review_id/*评论ID*/;

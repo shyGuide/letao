@@ -2,7 +2,7 @@
 <%@ include file="include/header.jsp" %>
 <head>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_orderConfirmPage.css" rel="stylesheet"/>
-    <title>确认收货 - Tmall.com乐淘-理想生活上乐淘</title>
+    <title>确认收货 - LeTao.com乐淘-理想生活上乐淘</title>
     <script>
 
     </script>
@@ -110,7 +110,7 @@
             <tr>
                 <td colspan="4">
                     <span class="info_label">卖家商铺昵称：</span>
-                    <span class="info_value">贤趣模拟旗舰店</span>
+                    <span class="info_value">小帅模拟旗舰店</span>
                 </td>
             </tr>
             <tr>
@@ -132,21 +132,21 @@
                         var yn = confirm("点击确认后，您之前付款到支付宝的 ${requestScope.orderTotalPrice}0 元将直接到卖家账户里，请务必收到货再确认！");
                         if (yn) {
                             $.ajax({
-                                url: "/tmall/order/success/${requestScope.productOrder.productOrder_code}",
+                                url: "/letao/order/success/${requestScope.productOrder.productOrder_code}",
                                 type: "PUT",
                                 data: null,
                                 dataType: "json",
                                 success: function (data) {
                                     if (data.success) {
-                                        location.href = "/tmall/order/success/${requestScope.productOrder.productOrder_code}";
+                                        location.href = "/letao/order/success/${requestScope.productOrder.productOrder_code}";
                                     } else {
                                         alert("订单确认异常，请稍后再试！");
-                                        location.href = "/tmall/order/0/10";
+                                        location.href = "/letao/order/0/10";
                                     }
                                 },
                                 error: function (data) {
                                     alert("订单确认异常，请稍后再试！");
-                                    location.href = "/tmall/order/0/10";
+                                    location.href = "/letao/order/0/10";
                                 }
                             });
                         }

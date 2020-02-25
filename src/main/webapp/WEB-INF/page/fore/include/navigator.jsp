@@ -33,7 +33,7 @@
         <ul class="quick_li">
             <li class="quick_li_MyTaobao">
                 <div class="sn_menu">
-                    <a href="${pageContext.request.contextPath}/userDetails">我的淘宝<b></b></a>
+                    <a href="${pageContext.request.contextPath}/userDetails">我的乐淘<b></b></a>
                     <div class="quick_menu">
                         <a href="${pageContext.request.contextPath}/order/0/10">已买到的宝贝</a>
                         <a href="#">已卖出的宝贝</a>

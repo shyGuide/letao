@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * 属性实体类
- * @author 贤趣项目小组
+ * @author shy
  */
 public class Property {
     private Integer property_id/*属性ID*/;

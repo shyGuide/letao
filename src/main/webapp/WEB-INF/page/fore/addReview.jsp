@@ -2,7 +2,7 @@
 <%@ include file="include/header.jsp" %>
 <head>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_addReview.css" rel="stylesheet"/>
-    <title>添加评论 - Tmall.com乐淘-理想生活上乐淘</title>
+    <title>添加评论 - LeTao.com乐淘-理想生活上乐淘</title>
     <script>
         $(function () {
             $("#review_form").submit(function () {

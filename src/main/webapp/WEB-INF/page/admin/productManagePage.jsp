@@ -25,7 +25,7 @@
                 var category_id = parseInt($("#select_product_category").val());
                 var lowest_price = $.trim($("#input_product_sale_price").val());
                 var highest_price = $.trim($("#input_product_price").val());
-                //产品状态数组
+                //商品状态数组
                 var status_array = [];
                 $("input[name = checkbox_product_isEnabled]:checked").each(function () {
                     status_array.push($(this).val());
@@ -88,7 +88,7 @@
                 trDataStyle($(this));
             });
         });
-        //获取产品数据
+        //获取商品数据
         function getData(object,url,dataObject) {
             var table = $("#table_product_list");
             var tbody = table.children("tbody").first();
@@ -103,7 +103,7 @@
                     //设置样式
                     $(".loader").css("display","none");
                     object.attr("disabled",false);
-                    //显示产品统计数据
+                    //显示商品统计数据
                     $("#product_count_data").text(data.productCount);
                     if (data.productList.length > 0) {
                         for (var i = 0; i < data.productList.length; i++) {
@@ -113,17 +113,17 @@
                             switch (data.productList[i].product_isEnabled) {
                                 case 0:
                                     isEnabledClass = "td_success";
-                                    isEnabledTitle = "产品正常销售中";
+                                    isEnabledTitle = "商品正常销售中";
                                     isEnabled = "销售中";
                                     break;
                                 case 2:
                                     isEnabledClass = "td_warn";
-                                    isEnabledTitle = "产品显示在主页促销中";
+                                    isEnabledTitle = "商品显示在主页促销中";
                                     isEnabled = "促销中";
                                     break;
                                 default:
                                     isEnabledClass = "td_error";
-                                    isEnabledTitle = "产品缺货或违规停售中";
+                                    isEnabledTitle = "商品缺货或违规停售中";
                                     isEnabled = "停售中";
                                     break;
                             }
@@ -133,8 +133,8 @@
                             var product_name = data.productList[i].product_name;
                             var product_title = data.productList[i].product_title;
                             var product_create_date = data.productList[i].product_create_date;
-                            //显示产品数据
-                            tbody.append("<tr><td><input type='checkbox' class='cbx_select' id='cbx_product_select_" + product_id + "'><label for='cbx_product_select_" + product_id + "'></label></td><td title='"+product_name+"'>" + product_name + "</td><td title='"+product_title+"'>" + product_title + "</td><td title='"+product_price+"'>" + product_price + "</td><td title='"+product_sale_price+"'>" + product_sale_price + "</td><td title='"+product_create_date+"'>" + product_create_date + "</td><td><span class='" + isEnabledClass + "' title='"+isEnabledTitle+"'>"+ isEnabled + "</span></td><td><span class='td_special' title='查看产品详情'><a href='javascript:void(0);' onclick='getChildPage(this)'>详情</a></span></td><td hidden><span class='product_id'>" + product_id + "</span></td></tr>");
+                            //显示商品数据
+                            tbody.append("<tr><td><input type='checkbox' class='cbx_select' id='cbx_product_select_" + product_id + "'><label for='cbx_product_select_" + product_id + "'></label></td><td title='"+product_name+"'>" + product_name + "</td><td title='"+product_title+"'>" + product_title + "</td><td title='"+product_price+"'>" + product_price + "</td><td title='"+product_sale_price+"'>" + product_sale_price + "</td><td title='"+product_create_date+"'>" + product_create_date + "</td><td><span class='" + isEnabledClass + "' title='"+isEnabledTitle+"'>"+ isEnabled + "</span></td><td><span class='td_special' title='查看商品详情'><a href='javascript:void(0);' onclick='getChildPage(this)'>详情</a></span></td><td hidden><span class='product_id'>" + product_id + "</span></td></tr>");
                         }
                         //绑定事件
                         tbody.children("tr").click(function () {
@@ -160,21 +160,21 @@
             });
         }
 
-        //获取产品子界面
+        //获取商品子界面
         function getChildPage(obj) {
             var url;
             var title;
             if(obj === null){
-                title = "添加产品";
+                title = "添加商品";
                 url = "product/new";
             } else {
-                title = "产品详情";
+                title = "商品详情";
                 url = "product/"+$(obj).parents("tr").find(".product_id").text();
             }
 
             //设置样式
             $("#div_home_title").children("span").text(title);
-            document.title = "Tmall管理后台 - "+title;
+            document.title = "LeTao管理后台 - "+title;
             //ajax请求页面
             ajaxUtil.getPage(url,null,true);
         }
@@ -198,9 +198,9 @@
 <body>
 <div class="frm_div text_info">
     <div class="frm_group">
-        <label class="frm_label" id="lbl_product_name" for="input_product_name">产品名称</label>
+        <label class="frm_label" id="lbl_product_name" for="input_product_name">商品名称</label>
         <input class="frm_input" id="input_product_name" type="text" maxlength="50"/>
-        <label class="frm_label" id="lbl_product_category_id" for="select_product_category">产品类型</label>
+        <label class="frm_label" id="lbl_product_category_id" for="select_product_category">商品类型</label>
         <select class="selectpicker" id="select_product_category" data-size="8">
             <option value="0">全部</option>
             <c:forEach items="${requestScope.categoryList}" var="category">
@@ -211,7 +211,7 @@
         <input class="frm_btn frm_clear" id="btn_clear" type="button" value="重置"/>
     </div>
     <div class="frm_group">
-        <label class="frm_label" id="lbl_product_isEnabled" for="checkbox_product_isEnabled_true">产品状态</label>
+        <label class="frm_label" id="lbl_product_isEnabled" for="checkbox_product_isEnabled_true">商品状态</label>
         <input id="checkbox_product_isEnabled_true" name="checkbox_product_isEnabled" type="checkbox" value="0" checked>
         <label class="frm_label" id="lbl_product_isEnabled_true" for="checkbox_product_isEnabled_true">销售中</label>
         <input id="checkbox_product_isEnabled_false" name="checkbox_product_isEnabled" type="checkbox" value="1" checked>
@@ -226,8 +226,8 @@
         <span class="frm_error_msg" id="text_product_msg"></span>
     </div>
     <div class="frm_group_last">
-        <input class="frm_btn frm_add" id="btn_product_add" type="button" value="添加一件产品" onclick="getChildPage(null)"/>
-        <input class="frm_btn frm_refresh" id="btn_product_refresh" type="button" value="刷新产品列表"/>
+        <input class="frm_btn frm_add" id="btn_product_add" type="button" value="添加一件商品" onclick="getChildPage(null)"/>
+        <input class="frm_btn frm_refresh" id="btn_product_refresh" type="button" value="刷新商品列表"/>
         <span class="frm_error_msg" id="text_tools_msg"></span>
     </div>
 </div>
@@ -239,7 +239,7 @@
             </path>
         </svg>
     <span class="data_count_title">查看合计</span>
-    <span>产品总数:</span>
+    <span>商品总数:</span>
     <span class="data_count_value" id="product_count_data">${requestScope.productCount}</span>
     <span class="data_count_unit">件</span>
 </div>
@@ -249,12 +249,12 @@
         <tr>
             <th><input type="checkbox" class="cbx_select" id="cbx_select_all"><label for="cbx_select_all"></label></th>
             <th class="data_info" data-sort="asc" data-name="product_name">
-                <span>产品名称</span>
+                <span>商品名称</span>
                 <span class="orderByDesc"></span>
                 <span class="orderByAsc orderBySelect"></span>
             </th>
             <th class="data_info" data-sort="asc" data-name="product_title">
-                <span>产品标题</span>
+                <span>商品标题</span>
                 <span class="orderByDesc"></span>
                 <span class="orderByAsc orderBySelect"></span>
             </th>
@@ -279,7 +279,7 @@
                 <span class="orderByAsc orderBySelect"></span>
             </th>
             <th>操作</th>
-            <th hidden>产品ID</th>
+            <th hidden>商品ID</th>
         </tr>
         </thead>
         <tbody>
@@ -293,12 +293,12 @@
                 <td title="${product.product_create_date}">${product.product_create_date}</td>
                 <td>
                     <c:choose>
-                        <c:when test="${product.product_isEnabled==0}"><span class="td_success" title="产品正常销售中">销售中</span></c:when>
-                        <c:when test="${product.product_isEnabled==2}"><span class="td_warn" title="产品显示在主页促销中">促销中</span></c:when>
-                        <c:otherwise><span class="td_error" title="产品缺货或违规停售中">停售中</span></c:otherwise>
+                        <c:when test="${product.product_isEnabled==0}"><span class="td_success" title="商品正常销售中">销售中</span></c:when>
+                        <c:when test="${product.product_isEnabled==2}"><span class="td_warn" title="商品显示在主页促销中">促销中</span></c:when>
+                        <c:otherwise><span class="td_error" title="商品缺货或违规停售中">停售中</span></c:otherwise>
                     </c:choose>
                 </td>
-                <td><span class="td_special" title="查看产品详情"><a href="javascript:void(0)" onclick="getChildPage(this)">详情</a></span></td>
+                <td><span class="td_special" title="查看商品详情"><a href="javascript:void(0)" onclick="getChildPage(this)">详情</a></span></td>
                 <td hidden><span class="product_id">${product.product_id}</span></td>
             </tr>
         </c:forEach>

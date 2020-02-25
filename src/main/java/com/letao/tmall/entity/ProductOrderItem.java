@@ -2,7 +2,7 @@ package com.letao.tmall.entity;
 
 /**
  * 订单项实体类
- * @author 贤趣项目小组
+ * @author shy
  */
 public class ProductOrderItem {
     private Integer productOrderItem_id/*订单项ID*/;

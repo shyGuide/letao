@@ -4,7 +4,7 @@
     <script src="${pageContext.request.contextPath}/res/js/jquery-color-2.1.2.js"></script>
     <script src="${pageContext.request.contextPath}/res/js/fore/fore_home.js"></script>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_home.css" rel="stylesheet"/>
-    <title>乐淘tmall.com--理想生活上乐淘</title>
+    <title>乐淘letao.com--理想生活上乐淘</title>
 </head>
 <body>
 <nav>

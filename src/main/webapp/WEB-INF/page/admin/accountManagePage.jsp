@@ -127,7 +127,7 @@
             formData.append("file", file);
             //上传图片
             $.ajax({
-                url: "/tmall/admin/uploadAdminHeadImage",
+                url: "/letao/admin/uploadAdminHeadImage",
                 type: "post",
                 data: formData,
                 contentType: false,

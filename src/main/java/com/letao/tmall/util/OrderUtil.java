@@ -2,7 +2,7 @@ package com.letao.tmall.util;
 
 /**
  * 查询排序工具
- * @author 贤趣项目小组
+ * @author shy
  */
 public final class OrderUtil {
     //排序字段

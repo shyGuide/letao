@@ -2,7 +2,7 @@
 <%@ include file="include/header.jsp" %>
 <head>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_orderPaySuccess.css" rel="stylesheet"/>
-    <title>乐淘tmall.com - 网上支付</title>
+    <title>乐淘letao.com - 网上支付</title>
 </head>
 <body>
 <nav>

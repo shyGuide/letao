@@ -25,10 +25,11 @@ import java.util.Map;
 
 /**
  * 主页
- * @author 贤趣项目小组
+ * @author shy
  */
 @Controller
 public class ForeHomeController extends BaseController {
+
     @Resource(name = "userService")
     private UserService userService;
     @Resource(name="categoryService")

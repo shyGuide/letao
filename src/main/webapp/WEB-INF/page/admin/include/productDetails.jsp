@@ -24,7 +24,7 @@
                     //校验数据合法性
                     var yn = true;
                     if(product_isEnabled === undefined){
-                        styleUtil.errorShow($("#text_productState_details_msg"),"请选择产品状态！");
+                        styleUtil.errorShow($("#text_productState_details_msg"),"请选择商品状态！");
                         yn = false;
                     }
                     if(product_name === ""){
@@ -47,7 +47,7 @@
                         return;
                     }
 
-                    //产品属性Map
+                    //商品属性Map
                     var propertyMap = {};
                     $("input[id^='input_product_property']").each(function () {
                         var value = $.trim($(this).val());
@@ -58,7 +58,7 @@
                         propertyMap[key] = value;
                     });
 
-                    //产品图片List
+                    //商品图片List
                     var productSingleImageList = [];
                     $("#product_single_list").children("li:not(.details_picList_fileUpload)").each(function () {
                         var img = $(this).children("img");
@@ -89,22 +89,22 @@
                     doAction(dataList, "admin/product", "POST");
                 });
             } else {
-                //设置产品种类值
+                //设置商品种类值
                 $('#select_product_category').selectpicker('val','${requestScope.product.product_category.category_id}');
-                //设置产品状态
+                //设置商品状态
                 var product_isEnabled = '${requestScope.product.product_isEnabled}';
                 $("input[name='radio_product_isEnabled']").each(function () {
                     if($(this).val() === product_isEnabled){
                         $(this).prop("checked",true);
                         if($(this).val() === "1"){
-                            $("#text_productState_details_msg").text("提示：产品停售时无法进行交易").attr("title","提示：产品停售时无法进行交易").css("left",0).css("opacity","1");
+                            $("#text_productState_details_msg").text("提示：商品停售时无法进行交易").attr("title","提示：商品停售时无法进行交易").css("left",0).css("opacity","1");
                         }
                         return false;
                     }
                 });
-                //设置产品编号
+                //设置商品编号
                 $("#span_product_id").text('${requestScope.product.product_id}');
-                //设置产品创建日期
+                //设置商品创建日期
                 $("#span_product_create_date").text('${requestScope.product.product_create_date}');
                 //判断文件是否允许上传
                 checkFileUpload($("#product_single_list"),5);
@@ -132,7 +132,7 @@
                     //校验数据合法性
                     var yn = true;
                     if (product_isEnabled === undefined) {
-                        styleUtil.errorShow($("#text_productState_details_msg"), "请选择产品状态！");
+                        styleUtil.errorShow($("#text_productState_details_msg"), "请选择商品状态！");
                         yn = false;
                     }
                     if (product_name === "") {
@@ -155,11 +155,11 @@
                         return;
                     }
 
-                    //产品属性Map
+                    //商品属性Map
                     var propertyAddMap = {};
                     var propertyUpdateMap = {};
                     var propertyDeleteList = [];
-                    //获取需要更新或删除的产品属性
+                    //获取需要更新或删除的商品属性
                     $("input[id^=input_product_property][data-pvid]").each(function () {
                         var value_id = $(this).attr("data-pvid");
                         var value = $.trim($(this).val());
@@ -169,7 +169,7 @@
                             propertyUpdateMap[value_id] = value;
                         }
                     });
-                    //获取需要添加的产品属性
+                    //获取需要添加的商品属性
                     $("input[id^=input_product_property]:not([data-pvid])").each(function () {
                         var value = $.trim($(this).val());
                         if (value === "") {
@@ -180,7 +180,7 @@
                         }
                     });
 
-                    //产品图片List
+                    //商品图片List
                     var productSingleImageList = [];
                     $("#product_single_list").children("li:not(.details_picList_fileUpload)").each(function () {
                         var img = $(this).children("img");
@@ -231,7 +231,7 @@
                 } else {
                     $("#btn-ok").unbind("click").click(function () {
                         $.ajax({
-                            url: "/tmall/admin/productImage/" + productImage_id,
+                            url: "/letao/admin/productImage/" + productImage_id,
                             type: "delete",
                             data: null,
                             success: function (data) {
@@ -254,13 +254,13 @@
                         });
                     });
                 }
-                $(".modal-body").text("您确定要删除该产品图片吗？");
+                $(".modal-body").text("您确定要删除该商品图片吗？");
                 $('#modalDiv').modal();
             });
-            //改变产品状态时
+            //改变商品状态时
             $('input:radio').click(function () {
                 if($(this).val() === "1"){
-                    styleUtil.errorShow($("#text_productState_details_msg"),"提示：产品停售时无法进行交易");
+                    styleUtil.errorShow($("#text_productState_details_msg"),"提示：商品停售时无法进行交易");
                 } else {
                     styleUtil.errorHide($("#text_productState_details_msg"));
                 }
@@ -269,7 +269,7 @@
             $("#btn_product_cancel").click(function () {
                 $(".menu_li[data-toggle=product]").click();
             });
-            //更改产品类型列表时
+            //更改商品类型列表时
             $("#select_product_category").change(function () {
                 $.ajax({
                     url: "admin/property/type/"+$(this).val(),
@@ -280,7 +280,7 @@
                         //清空原有数据
                         var listDiv = $(".details_property_list");
                         listDiv.empty().append("<span class='details_title text_info'>属性值信息</span>");
-                        //显示产品属性数据
+                        //显示商品属性数据
                         if(data.propertyList.length > 0){
                             for(var i = 0;i<data.propertyList.length;i++){
                                 var propertyId = data.propertyList[i].property_id;
@@ -347,7 +347,7 @@
             formData.append("imageType", type);
             //上传图片
             $.ajax({
-                url: "/tmall/admin/uploadProductImage",
+                url: "/letao/admin/uploadProductImage",
                 type: "post",
                 data: formData,
                 contentType: false,
@@ -386,7 +386,7 @@
             }
         }
 
-        //产品操作
+        //商品操作
         function doAction(dataList, url, type) {
             $.ajax({
                 url: url,
@@ -443,13 +443,13 @@
 <div class="details_div_first">
     <input type="hidden" value="${requestScope.product.product_id}" id="details_product_id"/>
     <div class="frm_div_last warn_height">
-        <label class="frm_label text_info" id="lbl_product_category_id" for="select_product_category">产品类型</label>
+        <label class="frm_label text_info" id="lbl_product_category_id" for="select_product_category">商品类型</label>
         <select class="selectpicker" id="select_product_category" data-size="8">
             <c:forEach items="${requestScope.categoryList}" var="category">
                 <option value="${category.category_id}">${category.category_name}</option>
             </c:forEach>
         </select>
-        <label class="frm_label text_info" id="lbl_product_isEnabled" for="radio_product_isEnabled_true">产品状态</label>
+        <label class="frm_label text_info" id="lbl_product_isEnabled" for="radio_product_isEnabled_true">商品状态</label>
         <input id="radio_product_isEnabled_true" name="radio_product_isEnabled" type="radio" value="0" checked>
         <label class="frm_label text_info" id="lbl_product_isEnabled_true" for="radio_product_isEnabled_true">销售中</label>
         <input id="radio_product_isEnabled_false" name="radio_product_isEnabled" type="radio" value="1">
@@ -462,22 +462,22 @@
 <div class="details_div">
     <span class="details_title text_info">基本信息</span>
     <div class="frm_div">
-        <label class="frm_label text_info" id="lbl_product_id">产品编号</label>
+        <label class="frm_label text_info" id="lbl_product_id">商品编号</label>
         <span class="details_value" id="span_product_id">系统指定</span>
         <label class="frm_label text_info" id="lbl_product_create_date">上架日期</label>
         <span class="details_value" id="span_product_create_date">系统指定</span>
     </div>
     <div class="frm_div">
-        <label class="frm_label text_info" id="lbl_product_name" for="input_product_name">产品名称</label>
+        <label class="frm_label text_info" id="lbl_product_name" for="input_product_name">商品名称</label>
         <input class="frm_input" id="input_product_name" type="text" maxlength="50" value="${requestScope.product.product_name}"/>
-        <label class="frm_label text_info" id="lbl_product_title" for="input_product_title">产品标题</label>
+        <label class="frm_label text_info" id="lbl_product_title" for="input_product_title">商品标题</label>
         <input class="frm_input" id="input_product_title" type="text" maxlength="50" value="${requestScope.product.product_title}"/>
     </div>
     <div class="frm_div_last">
-        <label class="frm_label text_info" id="lbl_product_price" for="input_product_price">产品原价</label>
+        <label class="frm_label text_info" id="lbl_product_price" for="input_product_price">商品原价</label>
         <input class="frm_input details_unit"  id="input_product_price" type="text" maxlength="10" value="${requestScope.product.product_price}"/>
         <span class="details_unit text_info">元</span>
-        <label class="frm_label text_info" id="lbl_product_sale_price" for="input_product_sale_price">产品促销价</label>
+        <label class="frm_label text_info" id="lbl_product_sale_price" for="input_product_sale_price">商品促销价</label>
         <input class="frm_input details_unit"  id="input_product_sale_price" type="text" maxlength="10" value="${requestScope.product.product_sale_price}"/>
         <span class="details_unit text_info">元</span>
     </div>
@@ -575,7 +575,7 @@
             <div class="modal-header">
                 <h4 class="modal-title" id="myModalLabel">提示</h4>
             </div>
-            <div class="modal-body">您确定要删除该产品图片吗？</div>
+            <div class="modal-body">您确定要删除该商品图片吗？</div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary" id="btn-ok">确定</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close">关闭</button>

@@ -4,7 +4,7 @@
     <script src="${pageContext.request.contextPath}/res/js/fore/fore_login.js"></script>
     <script src="${pageContext.request.contextPath}/res/js/fore/fore_productDetails.js"></script>
     <link href="${pageContext.request.contextPath}/res/css/fore/fore_productDetails.css" rel="stylesheet">
-    <title>${requestScope.product.product_name}-tmall.com乐淘</title>
+    <title>${requestScope.product.product_name}-letao.com乐淘</title>
 </head>
 <body>
 <nav>
@@ -12,7 +12,7 @@
     <div class="header">
         <a href="${pageContext.request.contextPath}"><img
                 src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/03.png"></a>
-        <span class="shopNameHeader">贤趣${requestScope.product.product_category.category_name}官方旗舰店</span>
+        <span class="shopNameHeader">小帅${requestScope.product.product_category.category_name}官方旗舰店</span>
         <input id="tid" type="hidden" value="${requestScope.product.product_category.category_id}"/>
         <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/detailsHeaderA.png"
              class="shopAssessHeader">
@@ -207,7 +207,7 @@
                                         });
                                     } else {
                                         if (data.url != null) {
-                                            location.href = "/tmall" + data.url;
+                                            location.href = "/letao" + data.url;
 
                                         } else {
                                             alert("加入购物车失败，请稍后再试！");
@@ -250,7 +250,7 @@
                 <c:forEach items="${requestScope.loveProductList}" var="product">
                     <li class="context_ul_main">
                         <div class="context_ul_img">
-                            <a href="/tmall/product/${product.product_id}">
+                            <a href="/letao/product/${product.product_id}">
                                 <img src="${pageContext.request.contextPath}/res/images/item/productSinglePicture/${product.singleProductImageList[0].productImage_src}">
                             </a>
                             <p>¥${product.product_sale_price}0</p>

@@ -78,7 +78,7 @@
             });
         }
 
-        // 获取产品分类子界面
+        // 获取商品分类子界面
         function getChildPage(obj) {
             var url;
             var title;
@@ -92,7 +92,7 @@
 
             //设置样式
             $("#div_home_title").children("span").text(title);
-            document.title = "Tmall管理后台 - " + title;
+            document.title = "LeTao管理后台 - " + title;
             //ajax请求页面
             ajaxUtil.getPage(url, null, true);
         }
