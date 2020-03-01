@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "mybatis-3-mapper.dtd">
-<mapper namespace="com.letao.tmall.dao.AdminMapper">
+<mapper namespace="com.letao.dao.AdminMapper">
     <insert id="insertOne" parameterType="admin">
         INSERT admin(admin_id,admin_name,admin_nickname,admin_password,admin_profile_picture_src)
             VALUES (

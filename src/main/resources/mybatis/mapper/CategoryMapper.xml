@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "mybatis-3-mapper.dtd">
-<mapper namespace="com.letao.tmall.dao.CategoryMapper">
+<mapper namespace="com.letao.dao.CategoryMapper">
     <insert id="insertOne" parameterType="category">
         INSERT category (category_id,category_name,category_image_src)
             VALUES (

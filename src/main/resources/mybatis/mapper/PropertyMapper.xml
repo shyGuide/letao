@@ -2,11 +2,11 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "mybatis-3-mapper.dtd">
-<mapper namespace="com.letao.tmall.dao.PropertyMapper">
+<mapper namespace="com.letao.dao.PropertyMapper">
     <resultMap id="propertyMap" type="property">
         <id property="property_id" column="property_id"/>
         <result property="property_name" column="property_name"/>
-        <association property="property_category" javaType="com.letao.tmall.entity.Category">
+        <association property="property_category" javaType="com.letao.entity.Category">
             <id property="category_id" column="property_category_id"/>
         </association>
     </resultMap>
