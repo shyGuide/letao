@@ -111,7 +111,7 @@
         </div>
     </div>
 </div>
-<%@include file="include/footer.jsp" %>
+<%--<%@include file="include/footer.jsp" %>--%>
 <link href="${pageContext.request.contextPath}/res/css/fore/fore_foot_special.css" rel="stylesheet"/>
 <div class="msg">
     <span>注册成功，跳转到登陆页面</span>

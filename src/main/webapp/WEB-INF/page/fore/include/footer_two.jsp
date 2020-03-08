@@ -2,13 +2,13 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/fore/fore_foot_two.css"/>
 <div class="banner_footer">
     <div class="tmall-ensure">
-        <a href="http://pages.tmall.com/wow/seller/act/newpinzhibaozhang"></a>
-        <a href="http://www.tmall.com/wow/seller/act/seven-day"></a>
-        <a href="http://www.tmall.com/wow/seller/act/special-service?spm=875.7931836/B.a2226n1.3.71ca4265dmsU86"></a>
-        <a href="http://service.tmall.com/support/tmall/tmallHelp.htm"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
     </div>
     <div class="tmall-desc">
-        <dl>
+        <%--<dl>
             <dt><span>购物指南</span></dt>
             <dd><a href="http://register.tmall.com/" target="_blank">免费注册</a> <a
                     href="https://www.alipay.com/user/reg_select.htm" target="_blank">开通支付宝</a> <a
@@ -47,6 +47,6 @@
                     src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/TB14VZKHXXXXXcAXXXX64VRZFXX-105-105.png"
                     width="105" height="105" alt="手机乐淘"></a>
             </dd>
-        </dl>
+        </dl>--%>
     </div>
 </div>

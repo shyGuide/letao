@@ -46,13 +46,13 @@
             </div>
         </div>--%>
         <div class="pwdLogin">
-            <span class="loginTitle">密码登录</span>
+            <span class="loginTitle">用户登录</span>
             <form method="post" class="loginForm">
                 <div class="loginInputDiv">
                     <label for="name" class="loginLabel"><img
                             src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/2018-04-27_235518.png"
                             width="38px" height="39px" title="会员名"/></label>
-                    <input type="text" name="name" id="name" class="loginInput" placeholder="会员名/邮箱/手机号">
+                    <input type="text" name="name" id="name" class="loginInput" placeholder="用户名">
                 </div>
                 <div class="loginInputDiv">
                     <label for="password" class="loginLabel"><img
@@ -63,8 +63,8 @@
                 <input type="submit" class="loginButton" value="登 录">
             </form>
             <div class="loginLinks">
-                <%--<a href="#">忘记密码</a>
-                <a href="#">忘记会员名</a>--%>
+                <a href="${pageContext.request.contextPath}/resetPwd">忘记密码</a>
+                <%--<a href="#">忘记会员名</a>--%>
                 <a href="${pageContext.request.contextPath}/register">免费注册</a>
             </div>
             <div class="error_message">
@@ -91,6 +91,6 @@
         </div>
     </div>
 </div>
-<%@ include file="include/footer.jsp" %>
+<%--<%@ include file="include/footer.jsp" %>--%>
 <link href="${pageContext.request.contextPath}/res/css/fore/fore_foot_special.css" rel="stylesheet"/>
 </body>

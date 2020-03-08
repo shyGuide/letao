@@ -111,5 +111,5 @@
     <div class="endDiv"></div>
 </div>
 <%@ include file="include/footer_two.jsp" %>
-<%@ include file="include/footer.jsp" %>
+<%--<%@ include file="include/footer.jsp" %>--%>
 </body>

@@ -292,5 +292,5 @@
     <span>商品已添加</span>
 </div>
 <%@ include file="include/footer_two.jsp" %>
-<%@ include file="include/footer.jsp" %>
+<%--<%@ include file="include/footer.jsp" %>--%>
 </body>

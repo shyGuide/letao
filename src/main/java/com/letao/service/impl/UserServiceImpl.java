@@ -20,16 +20,32 @@ public class UserServiceImpl implements UserService{
         this.userMapper = userMapper;
     }
 
+    //添加用户
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    //PROPAGATION_REQUIRED-- 支持当前事务，如果当前没有事务，就新建一个事务。这是最常见的选择。
     @Override
     public boolean add(User user) {
         return userMapper.insertOne(user)>0;
     }
 
+    //修改用户
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
     public boolean update(User user) {
         return userMapper.updateOne(user)>0;
+    }
+
+    //重置密码
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    //PROPAGATION_REQUIRED-- 支持当前事务，如果当前没有事务，就新建一个事务。这是最常见的选择。
+    @Override
+    public boolean resetPwd(User user){
+        long count = userMapper.resetPwd(user);
+        if (count == 1){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override

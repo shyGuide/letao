@@ -89,4 +89,37 @@ public class ForeRegisterController extends BaseController{
             throw new RuntimeException();
         }
     }
+    //转到前台乐淘-重置密码
+    @RequestMapping(value = "resetPwd", method = RequestMethod.GET)
+    public String toResetPwd(){
+        logger.info("转到前台-重置密码");
+        return "fore/resetPwd";
+    }
+
+    //乐淘前台-重置密码-ajax
+    @ResponseBody
+    @RequestMapping(value = "resetPwd/doResetPwd", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String resetPwd(
+            @RequestParam(value = "user_name") String user_name  /*用户登录名*/,
+            @RequestParam(value = "user_realname") String user_realname  /*用户姓名*/,
+            @RequestParam(value = "user_password") String user_password  /*用户密码*/){
+        logger.info("创建用户信息");
+        User user = new User()
+                .setUser_name(user_name)
+                .setUser_realname(user_realname)
+                .setUser_password(user_password);
+        logger.info("重置密码");
+        if(userService.resetPwd(user)){
+            logger.info("重置密码成功");
+            JSONObject object = new JSONObject();
+            object.put("success", true);
+            return object.toJSONString();
+        }else {
+            logger.info("重置密码失败");
+            JSONObject object = new JSONObject();
+            object.put("success", false);
+            object.put("msg", "用户登录名或用户姓名错误，请重新输入");
+            return object.toJSONString();
+        }
+    }
 }

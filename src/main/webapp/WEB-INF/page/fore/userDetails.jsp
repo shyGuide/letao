@@ -142,7 +142,7 @@
         </div>
     </div>
 </div>
-<%@include file="include/footer.jsp" %>
+<%--<%@include file="include/footer.jsp" %>--%>
 <link href="${pageContext.request.contextPath}/res/css/fore/fore_foot_special.css" rel="stylesheet"/>
 </body>
 

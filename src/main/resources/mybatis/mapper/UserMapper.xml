@@ -54,6 +54,17 @@
             user_id = #{user.user_id}
         </where>
     </update>
+
+    <update id="resetPwd" parameterType="user">
+        update user
+        <set>
+            user_password = #{user.user_password}
+        </set>
+        <where>
+            user_name = #{user.user_name} and user_realname = #{user.user_realname}
+        </where>
+    </update>
+
     <select id="select" resultMap="userMap">
         SELECT user_id,user_name,user_nickname,user_password,user_realname,user_gender,user_birthday,user_profile_picture_src,user_address,user_homeplace FROM user
         <if test="user != null">

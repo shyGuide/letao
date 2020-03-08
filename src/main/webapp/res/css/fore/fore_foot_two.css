@@ -19,11 +19,10 @@
 }
 
 .banner_footer > .tmall-desc {
-    background: url(../../images/fore/WebsiteImage/TB1dl28RXXXXXbzaFXXXXXXXXXX-136-50.png) 45px bottom no-repeat;
     background-size: 68px 25px;
     width: 1190px;
     padding-top: 22px;
-    height: 190px;
+
     margin: auto;
     border-top: 1px solid #ededed;
 }
