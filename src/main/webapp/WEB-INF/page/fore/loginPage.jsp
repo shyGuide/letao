@@ -38,13 +38,13 @@
 <div class="content">
     <div class="contentMain"></div>
     <div class="loginDiv">
-        <div class="loginSwitch" id="loginSwitch"></div>
-        <div class="loginMessage">
+        <%--<div class="loginSwitch" id="loginSwitch"></div>--%>
+        <%--<div class="loginMessage">
             <div class="loginMessageMain">
                 <div class="poptip-arrow"><em></em><span></span></div>
-                <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/scan-safe.png"/><span>扫码登录更安全</span>
+                &lt;%&ndash;<img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/scan-safe.png"/><span>扫码登录更安全</span>&ndash;%&gt;
             </div>
-        </div>
+        </div>--%>
         <div class="pwdLogin">
             <span class="loginTitle">密码登录</span>
             <form method="post" class="loginForm">
@@ -63,8 +63,8 @@
                 <input type="submit" class="loginButton" value="登 录">
             </form>
             <div class="loginLinks">
-                <a href="#">忘记密码</a>
-                <a href="#">忘记会员名</a>
+                <%--<a href="#">忘记密码</a>
+                <a href="#">忘记会员名</a>--%>
                 <a href="${pageContext.request.contextPath}/register">免费注册</a>
             </div>
             <div class="error_message">

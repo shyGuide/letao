@@ -3,7 +3,7 @@
     width: 100%;
     min-width: 1190px;
     margin-bottom: 40px;
-    background-color: rgb(241, 220, 165);
+    background-color: rgb(255, 177, 100);
     font-family: "Microsoft YaHei UI", serif;
 }
 
@@ -12,7 +12,7 @@
     width: 1190px;
     height: 600px;
     margin: auto;
-    background-image: url(../../images/fore/WebsiteImage/loginbz3.jpg);
+    background-image: url(../../images/fore/WebsiteImage/loginbz4.jpg);
 }
 
 .loginDiv {
