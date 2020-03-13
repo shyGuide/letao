@@ -40,13 +40,7 @@
         <div class="loginDivHeader">
             <a href="javascript:void(0)" class="closeLoginDiv"></a>
         </div>
-        <div class="loginSwitch" id="loginSwitch"></div>
-        <div class="loginMessage">
-            <div class="loginMessageMain">
-                <div class="poptip-arrow"><em></em><span></span></div>
-                <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/scan-safe.png"/><span>扫码登录更安全</span>
-            </div>
-        </div>
+
         <div class="pwdLogin">
             <span class="loginTitle">密码登录</span>
             <form method="post" class="loginForm">
@@ -65,8 +59,7 @@
                 <input type="submit" class="loginButton" value="登 录">
             </form>
             <div class="loginLinks">
-                <a href="#">忘记密码</a>
-                <a href="#">忘记会员名</a>
+                <a href="${pageContext.request.contextPath}/resetPwd">忘记密码</a>
                 <a href="${pageContext.request.contextPath}/register" target="_blank">免费注册</a>
             </div>
             <div class="error_message">
@@ -207,7 +200,7 @@
                                         });
                                     } else {
                                         if (data.url != null) {
-                                            location.href = "/letao" + data.url;
+                                            location.href =  data.url;
 
                                         } else {
                                             alert("加入购物车失败，请稍后再试！");
@@ -250,7 +243,7 @@
                 <c:forEach items="${requestScope.loveProductList}" var="product">
                     <li class="context_ul_main">
                         <div class="context_ul_img">
-                            <a href="/letao/product/${product.product_id}">
+                            <a href="/product/${product.product_id}">
                                 <img src="${pageContext.request.contextPath}/res/images/item/productSinglePicture/${product.singleProductImageList[0].productImage_src}">
                             </a>
                             <p>¥${product.product_sale_price}0</p>

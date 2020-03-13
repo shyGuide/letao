@@ -132,21 +132,21 @@
                         var yn = confirm("点击确认后，您之前付款到支付宝的 ${requestScope.orderTotalPrice}0 元将直接到卖家账户里，请务必收到货再确认！");
                         if (yn) {
                             $.ajax({
-                                url: "/letao/order/success/${requestScope.productOrder.productOrder_code}",
+                                url: "/order/success/${requestScope.productOrder.productOrder_code}",
                                 type: "PUT",
                                 data: null,
                                 dataType: "json",
                                 success: function (data) {
                                     if (data.success) {
-                                        location.href = "/letao/order/success/${requestScope.productOrder.productOrder_code}";
+                                        location.href = "/order/success/${requestScope.productOrder.productOrder_code}";
                                     } else {
                                         alert("订单确认异常，请稍后再试！");
-                                        location.href = "/letao/order/0/10";
+                                        location.href = "/order/0/10";
                                     }
                                 },
                                 error: function (data) {
                                     alert("订单确认异常，请稍后再试！");
-                                    location.href = "/letao/order/0/10";
+                                    location.href = "/order/0/10";
                                 }
                             });
                         }

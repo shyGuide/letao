@@ -1072,7 +1072,7 @@ public class ForeOrderController extends BaseController {
         }
 
         object.put("success", true);
-        object.put("url", "/order/pay/" + productOrder.getProductOrder_code());
+        object.put("url", "order/pay/" + productOrder.getProductOrder_code());
         return object.toJSONString();
     }
 

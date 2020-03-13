@@ -16,14 +16,14 @@
                         if (data.success !== true) {
                             alert("购物车商品删除异常，请稍候再试！");
                         }
-                        location.href = "/letao/cart";
+                        location.href = "/cart";
                     },
                     beforeSend: function () {
 
                     },
                     error: function () {
                         alert("购物车产品删除异常，请稍后再试！");
-                        location.href = "/letao/cart";
+                        location.href = "/cart";
                     }
                 });
             });

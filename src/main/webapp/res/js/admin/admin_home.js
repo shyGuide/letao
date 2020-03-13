@@ -31,7 +31,7 @@ $(function () {
         $(".menu_li[data-toggle=account]").click();
     });
     $("#nav_tools_admin_logout").click(function () {
-        location.href = "/letao/admin/account/logout";
+        location.href = "/admin/account/logout";
     });
 });
 //tbody中tr的单击样式

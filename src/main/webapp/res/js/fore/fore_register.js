@@ -7,7 +7,7 @@ $(function () {
     $('#select_user_address_province').change(function () {
         $.ajax({
             type: "GET",
-            url: "/letao/address/" + $(this).val(),
+            url: "/address/" + $(this).val(),
             data: null,
             dataType: "json",
             success: function (data) {
@@ -45,7 +45,7 @@ $(function () {
     $("#select_user_address_city").change(function () {
         $.ajax({
             type: "GET",
-            url: "/letao/address/" + $(this).val(),
+            url: "/address/" + $(this).val(),
             data: null,
             dataType: "json",
             success: function (data) {
@@ -157,7 +157,7 @@ $(function () {
         }
         $.ajax({
             type: "POST",
-            url: "/letao/register/doRegister",
+            url: "/register/doRegister",
             data: {
                 "user_name": user_name,
                 "user_password": user_password,
@@ -175,7 +175,7 @@ $(function () {
                         $(".msg").animate({
                             opacity: 0
                         }, 1500, function () {
-                            location.href = "/letao/login";
+                            location.href = "/login";
                         });
                     });
                 } else {

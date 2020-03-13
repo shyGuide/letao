@@ -7,7 +7,7 @@ $(function () {
     $('#select_user_address_province').change(function () {
         $.ajax({
             type: "GET",
-            url: "/letao/address/" + $(this).val(),
+            url: "/address/" + $(this).val(),
             data: null,
             dataType: "json",
             success: function (data) {
@@ -45,7 +45,7 @@ $(function () {
     $("#select_user_address_city").change(function () {
         $.ajax({
             type: "GET",
-            url: "/letao/address/" + $(this).val(),
+            url: "/address/" + $(this).val(),
             data: null,
             dataType: "json",
             success: function (data) {
@@ -182,7 +182,7 @@ function uploadImage(fileDom) {
     formData.append("file", file);
     //上传图片
     $.ajax({
-        url: "/letao/user/uploadUserHeadImage",
+        url: "/user/uploadUserHeadImage",
         type: "post",
         data: formData,
         contentType: false,
@@ -191,7 +191,7 @@ function uploadImage(fileDom) {
         mimeType: "multipart/form-data",
         success: function (data) {
             if (data.success) {
-                $(fileDom).prev("img").attr("src","/letao/res/images/item/userProfilePicture/"+data.fileName);
+                $(fileDom).prev("img").attr("src","/res/images/item/userProfilePicture/"+data.fileName);
                 $("#user_profile_picture_src_value").val(data.fileName);
             } else {
                 alert("图片上传异常！");

@@ -231,7 +231,7 @@
                 } else {
                     $("#btn-ok").unbind("click").click(function () {
                         $.ajax({
-                            url: "/letao/admin/productImage/" + productImage_id,
+                            url: "/admin/productImage/" + productImage_id,
                             type: "delete",
                             data: null,
                             success: function (data) {
@@ -347,7 +347,7 @@
             formData.append("imageType", type);
             //上传图片
             $.ajax({
-                url: "/letao/admin/uploadProductImage",
+                url: "/admin/uploadProductImage",
                 type: "post",
                 data: formData,
                 contentType: false,

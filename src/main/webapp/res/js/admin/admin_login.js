@@ -43,14 +43,14 @@ $(function () {
             return;
         }
         $.ajax({
-            url: "/letao/admin/login/doLogin",
+            url: "/admin/login/doLogin",
             type:"post",
             data: {"username":username,"password":password},
             success:function (data) {
                 $("#btn_login").val("登录");
                 if (data.success) {
                     cookieUtil.setCookie("username", username, 30);
-                    location.href = "/letao/admin";
+                    location.href = "/admin";
                 } else {
                     styleUtil.errorShow($("#txt_error_msg"), "用户名或密码错误");
                 }
@@ -85,14 +85,14 @@ function initialCookie() {
         if(url !== null) {
             $("#div_background").css("background-image", url);
         } else {
-            $("#div_background").css("background-image", "url(/letao/res/images/admin/loginPage/background-4.jpg)");
+            $("#div_background").css("background-image", "url(/res/images/admin/loginPage/background-4.jpg)");
         }
         if(username !== null){
             $("#input_username").val(username);
             getUserProfilePicture(username);
         }
     } else {
-        $("#div_background").css("background-image", "url(/letao/res/images/admin/loginPage/background-1.jpg)");
+        $("#div_background").css("background-image", "url(/res/images/admin/loginPage/background-1.jpg)");
     }
 }
 //初始化页面数据
@@ -114,14 +114,14 @@ function initialData() {
 //获取用户头像
 function getUserProfilePicture(username) {
     if(username !== null && username !== ""){
-        $.getJSON("/letao/admin/login/profile_picture",{"username":username},function (data) {
+        $.getJSON("/admin/login/profile_picture",{"username":username},function (data) {
             if(data.success){
                 if(data.srcString !== null){
-                    $("#img_profile_picture").attr("src", "/letao/res/images/item/adminProfilePicture/" + data.srcString);
+                    $("#img_profile_picture").attr("src", "/res/images/item/adminProfilePicture/" + data.srcString);
                     return true;
                 }
             }
         });
     }
-    $("#img_profile_picture").attr("src","/letao/res/images/admin/loginPage/default_profile_picture-128x128.png");
+    $("#img_profile_picture").attr("src","/res/images/admin/loginPage/default_profile_picture-128x128.png");
 }

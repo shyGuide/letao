@@ -69,7 +69,7 @@ $(function () {
         }
         $.ajax({
             type: "POST",
-            url: "/letao/resetPwd/doResetPwd",
+            url: "/resetPwd/doResetPwd",
             data: {
                 "user_name": user_name,
                 "user_realname": user_realname,
@@ -84,7 +84,7 @@ $(function () {
                         $(".msg").animate({
                             opacity: 0
                         }, 1500, function () {
-                            location.href = "/letao/login";
+                            location.href = "/login";
                         });
                     });
                 } else {

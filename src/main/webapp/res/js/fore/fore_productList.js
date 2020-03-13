@@ -19,9 +19,9 @@ $(function () {
         }
         //检索
         if ($(this).parent('ul').attr('data-value') === undefined) {
-            location.href = '/letao/product/0/20?orderBy=' + orderBy + "&isDesc=" + isDesc + "&category_id=" + $(this).parent('ul').attr('data-type');
+            location.href = '/product/0/20?orderBy=' + orderBy + "&isDesc=" + isDesc + "&category_id=" + $(this).parent('ul').attr('data-type');
         } else {
-            location.href = '/letao/product/0/20?orderBy=' + orderBy + "&isDesc=" + isDesc + "&product_name=" + $(this).parent('ul').attr('data-value');
+            location.href = '/product/0/20?orderBy=' + orderBy + "&isDesc=" + isDesc + "&product_name=" + $(this).parent('ul').attr('data-value');
         }
     });
     //点击商品图片时

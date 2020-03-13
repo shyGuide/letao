@@ -31,7 +31,7 @@ nav {
 }
 
 .loginDiv > .loginDivHeader {
-    background: #FF0036 url(../../images/fore/WebsiteImage/TB1VLoORXXXXXc4XXXXXXXXXXXX-132-41.png) 20px 10px no-repeat;
+    background: #FF8C00   no-repeat;
     height: 35px;
 }
 
@@ -42,7 +42,7 @@ nav {
     top: 10px;
     height: 16px;
     width: 16px;
-    background: #ff0036 url(../../images/fore/WebsiteImage/TB1VLoORXXXXXc4XXXXXXXXXXXX-132-41.png) 0 -25px no-repeat;
+    background: #FF8C00 url(../../images/fore/WebsiteImage/TB1VLoORXXXXXc4XXXXXXXXXXXX-132-41.png) 0 -25px no-repeat;
 }
 
 .loginSwitch {
@@ -162,7 +162,7 @@ nav {
     width: 300px;
     height: 42px;
     line-height: 42px;
-    background-color: #ff0036;
+    background-color: #FF8C00;
     font-weight: 700;
     font-size: 16px;
     color: #ffffff;
@@ -173,7 +173,7 @@ nav {
 }
 
 .loginButton:hover {
-    background-color: #ff335e;
+    background-color: #FF8C00;
 }
 
 .pwdLogin .loginLinks {

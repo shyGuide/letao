@@ -45,7 +45,7 @@
                 <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/mobile.png">
                 <a href="#">手机版</a>
             </li>
-            <li class="quick_home"><a href="${pageContext.request.contextPath}">乐淘网</a></li>
+            <li class="quick_home"><a href="http://www.letao.com">乐淘网</a></li>
             <li class="quick_DirectPromo">
                 <div class="sn_menu">
                     <a href="#">商家支持<b></b></a>

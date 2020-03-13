@@ -31,7 +31,7 @@
                 <div class="successInfo">
                     <ul class="info-rate-coin">
                         <li>
-                            <span class="review_msg">认真填写商品评价，就有机会获得20点乐淘达人经验值！</span>
+                            <span class="review_msg">认真填写商品评价，您的信誉度将会越来越高哦！</span>
                             <a class="J_makePoint"
                                href="${pageContext.request.contextPath}/review/${requestScope.orderItem.productOrderItem_id}">
                                 <img src="${pageContext.request.contextPath}/res/images/item/productSinglePicture/${requestScope.product.singleProductImageList[0].productImage_src}"

@@ -16,7 +16,7 @@
             VALUES(
             null,
             #{property.property_name},
-            #{property.property_category_id})
+            #{property.property_category.category_id})
     </insert>
     <insert id="insertList" parameterType="list">
         INSERT property (property_id,property_name,property_category_id)
@@ -24,7 +24,7 @@
         <foreach collection="property_list" index="index" item="property" separator=",">
             (null,
             #{property.property_name},
-            #{property.property_category_id})
+            #{property.property_category.category_id})
         </foreach>
     </insert>
     <update id="updateOne" parameterType="property">

@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService{
     //PROPAGATION_REQUIRED-- 支持当前事务，如果当前没有事务，就新建一个事务。这是最常见的选择。
     @Override
     public boolean resetPwd(User user){
-        long count = userMapper.resetPwd(user);
+        Long count = userMapper.resetPwd(user);
         if (count == 1){
             return true;
         }else {

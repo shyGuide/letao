@@ -191,7 +191,7 @@
                 return false;
             }
             $.ajax({
-                url: "/letao/order",
+                url: "/order",
                 type: "POST",
                 data: {
                     "addressId": addressId,
@@ -208,7 +208,7 @@
                 dataType: "json",
                 success: function (data) {
                     if (data.success) {
-                        location.href = "/letao" + data.url;
+                        location.href =  data.url;
                     } else {
                         alert("订单创建失败，请稍后再试！");
                         location.reload(true);
@@ -267,7 +267,7 @@
                 orderItemMap[orderItem_id] = $(this).find(".input_userMessage").val();
             });
             $.ajax({
-                url: "/letao/order/list",
+                url: "/order/list",
                 type: "POST",
                 data: {
                     "addressId": addressId,
@@ -282,7 +282,7 @@
                 traditional: true,
                 success: function (data) {
                     if (data.success) {
-                        location.href = "/letao" + data.url;
+                        location.href = "/" + data.url;
                         return true;
                     } else {
                         alert("订单创建失败，请稍后再试！");

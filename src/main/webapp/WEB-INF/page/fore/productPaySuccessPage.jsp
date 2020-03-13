@@ -61,12 +61,6 @@
         </div>
         <div id="J_Qrcode">
             <div class="mui-tm">
-                <a target="_blank" href="http://pages.tmall.com/wow/portal/act/app-download">
-                    <img class="type2-info"
-                         src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/TB1c1dwRFXXXXaMapXXXXXXXXXX-259-81.png"/>
-                    <img class="type2-qrcode"
-                         src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/TB1A2aISXXXXXX4XXXXwu0bFXXX.png"/>
-                </a>
             </div>
         </div>
     </div>

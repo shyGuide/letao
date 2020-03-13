@@ -13,6 +13,12 @@
                 $("#btn_category_save").click(function () {
                     var category_name = $.trim($("#input_category_name").val());
                     var category_image_src = $.trim($("#pic_category").attr("src"));
+                    var property_values = [];
+
+                    $("input[id^=property]").each(function () {
+                        var value = $.trim($(this).val());
+                        property_values.push(value)
+                    });
 
                     //校验数据合法性
                     var yn = true;
@@ -34,7 +40,8 @@
 
                     var dataList = {
                         "category_name": category_name,
-                        "category_image_src": category_image_src
+                        "category_image_src": category_image_src,
+                        "property_values": property_values
                     };
                     doAction(dataList, "admin/category", "POST");
                 });
@@ -133,7 +140,7 @@
             formData.append("file", file);
             //上传图片
             $.ajax({
-                url: "/letao/admin/uploadCategoryImage",
+                url: "/admin/uploadCategoryImage",
                 type: "post",
                 data: formData,
                 contentType: false,
@@ -185,6 +192,25 @@
 
                 }
             });
+        }
+
+
+        var pro = "<br> <br> 属性名：<input id=\"property\" class=\"input\" name=\"input\" /> ";
+        function addName() {
+            $('.div1').append(pro);
+        }
+
+        // 获取商品分类子界面
+        function getRefreshPage(obj) {
+            var url;
+            var title;
+                title = "添加分类";
+                url = "category/new";
+            //设置样式
+            $("#div_home_title").children("span").text(title);
+            document.title = "LeTao管理后台 - " + title;
+            //ajax请求页面
+            ajaxUtil.getPage(url, null, true);
         }
     </script>
     <style rel="stylesheet">
@@ -256,6 +282,16 @@
             </c:choose>
         </c:forEach>
     </c:if>
+
+    <c:if test="${fn:length(requestScope.category.propertyList)==0}">
+        <span class="details_title text_info">添加属性</span>
+        <div class="div1" >
+            属性名：<input class="input" id="property" name="input"/>
+            <input type="button" value="添加属性" onclick="addName()">
+            <button type="button" style="background-color: #df9c1f"  onclick="getRefreshPage()">重置</button>
+        </div>
+    </c:if>
+
 </div>
 <div class="details_tools_div">
     <input class="frm_btn" id="btn_category_save" type="button" value="保存"/>
@@ -274,6 +310,7 @@
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary" id="btn-ok">确定</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close">关闭</button>
+
             </div>
         </div>
         <%-- /.modal-content --%>

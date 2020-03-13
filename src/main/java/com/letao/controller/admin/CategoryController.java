@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -78,16 +79,31 @@ public class CategoryController extends BaseController {
     @ResponseBody
     @RequestMapping(value = "admin/category", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
     public String addCategory(@RequestParam String category_name/* 分类名称 */,
-                              @RequestParam String category_image_src/* 分类图片路径 */) {
+                              @RequestParam String category_image_src/* 分类图片路径 */,
+                              @RequestParam String[] property_values /*添加的属性列表*/) {
         JSONObject jsonObject = new JSONObject();
+
         logger.info("整合分类信息");
         Category category = new Category()
                 .setCategory_name(category_name)
                 .setCategory_image_src(category_image_src.substring(category_image_src.lastIndexOf("/") + 1));
-        logger.info("添加分类信息");
+        logger.info("信息");
         boolean yn = categoryService.add(category);
         if (yn) {
             int category_id = lastIDService.selectLastID();
+            if (property_values.length!=0){
+                logger.info("添加属性列表");
+                category.setCategory_id(category_id);
+                List<Property> propertyList = new ArrayList<>();
+                for (String propertyValue : property_values) {
+                    Property property = new Property();
+                    property.setProperty_category(category);
+                    property.setProperty_name(propertyValue);
+                    propertyList.add(property);
+                }
+                propertyService.addList(propertyList);
+                logger.info("添加属性列表成功");
+            }
             logger.info("添加成功！,新增分类的ID值为：{}", category_id);
             jsonObject.put("success", true);
             jsonObject.put("category_id", category_id);

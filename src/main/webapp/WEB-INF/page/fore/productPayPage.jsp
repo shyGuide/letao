@@ -59,14 +59,14 @@
                         if (data.success !== true) {
                             alert("订单处理异常，请稍候再试！");
                         }
-                        location.href = "/letao" + data.url;
+                        location.href = data.url;
                     },
                     beforeSend: function () {
 
                     },
                     error: function () {
                         alert("订单支付出现问题，请重新支付！");
-                        location.href = "/letao/order/0/10";
+                        location.href = "/order/0/10";
                     }
                 });
             }
