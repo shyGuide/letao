@@ -10,9 +10,9 @@
 <nav>
     <%@ include file="include/navigator.jsp" %>
     <div class="header">
-        <a href="${pageContext.request.contextPath}"><img
+        <a href="http://www.letao.com"><img
                 src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/03.png"></a>
-        <span class="shopNameHeader">小帅${requestScope.product.product_category.category_name}官方旗舰店</span>
+        <span class="shopNameHeader">shy ${requestScope.product.product_category.category_name}官方旗舰店</span>
         <input id="tid" type="hidden" value="${requestScope.product.product_category.category_id}"/>
         <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/detailsHeaderA.png"
              class="shopAssessHeader">
@@ -190,7 +190,7 @@
                                 dataType: "json",
                                 success: function (data) {
                                     if (data.success) {
-                                        alert("加入购物车成功！");
+
                                         $(".msg").stop(true, true).animate({
                                             opacity: 1
                                         }, 550, function () {
