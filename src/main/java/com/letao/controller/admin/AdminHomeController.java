@@ -1,9 +1,9 @@
 package com.letao.controller.admin;
 
-import com.alibaba.fastjson.JSON;
+
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.sun.org.apache.xpath.internal.operations.Or;
+
 import com.letao.controller.BaseController;
 import com.letao.entity.Admin;
 import com.letao.entity.OrderGroup;
@@ -11,7 +11,7 @@ import com.letao.service.AdminService;
 import com.letao.service.ProductOrderService;
 import com.letao.service.ProductService;
 import com.letao.service.UserService;
-import org.springframework.core.annotation.Order;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -150,7 +150,7 @@ public class AdminHomeController extends BaseController {
         logger.info("根据订单状态分类");
         //未付款订单数统计数组
         int[] orderUnpaidArray = new int[7];
-        //未发货订单数统计叔祖
+        //未发货订单数统计数组
         int[] orderNotShippedArray = new int[7];
         //未确认订单数统计数组
         int[] orderUnconfirmedArray = new int[7];
@@ -178,7 +178,7 @@ public class AdminHomeController extends BaseController {
                 //如果该订单日期与当前日期一致
                 if(orderGroup.getProductOrder_pay_date().equals(formatDate)){
                     //从结果集中移除数据
-                    orderGroupList.remove(j);
+                    //orderGroupList.remove(j);
                     //根据订单状态将统计结果存入对应的订单状态数组中
                     switch (orderGroup.getProductOrder_status()) {
                         case 0:
