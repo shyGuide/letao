@@ -45,7 +45,7 @@
             <p class="order_reward_name" id="reward_weixin_name">微信</p>
             <img src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/weixinpay.png">
         </div>
-        <p>制作不易，欢迎打赏，客官请随意</p>
+        <p>虚拟支付，请勿当真</p>
     </div>
     <div class="order_pay_div">
         <script>
